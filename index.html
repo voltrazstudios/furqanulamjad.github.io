@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Resume - Start Bootstrap Theme</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+
+        <!-- Card CSS -->
+<style>
+.card-wrapper {
+    perspective: 1200px;
+    margin-bottom: 30px;
+
+    /* Center horizontally and vertically */
+    display: flex;
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertical */
+}
+
+
+.card {
+    width: 900px;
+    height: 320px;
+    border-radius: 18px;
+    transform-style: preserve-3d;
+    transition: transform 300ms cubic-bezier(.2,.9,.3,1);
+    cursor: grab;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.card-container {
+    display: flex;
+    justify-content: center; /* center horizontally */
+    margin-bottom: 1.5rem;   /* optional spacing below card */
+}
+
+/* SHINE EFFECT */
+.card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%; /* start off-screen */
+    width: 50%;  /* width of the shine */
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.4) 50%,
+        rgba(255,255,255,0) 100%
+    );
+    transform: skewX(-25deg);
+    pointer-events: none; /* so it doesn’t block hover */
+    transition: all 0.3s ease;
+}
+
+.card:hover::after {
+    animation: shine 1s forwards;
+}
+
+@keyframes shine {
+    0% { left: -75%; }
+    100% { left: 125%; } /* move across the whole card */
+}
+
+.lanyard-container {
+    max-width: 400px;      /* width of card */
+    height: 450px;         /* trim height */
+    margin: 0 auto -65px;   /* center and spacing */
+    overflow: hidden;      /* hide anything outside */
+}
+
+.lanyard-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    pointer-events: auto;   /* allow interaction */
+
+    
+}
+
+.side-by-side-container {
+    display: flex;
+    justify-content: center; /* center the whole pair horizontally */
+    align-items: center;     /* align vertically */
+    gap: -10px;               /* space between image and lanyard */
+    flex-wrap: wrap;         /* wrap on small screens */
+}
+
+.header-image-container {
+    flex: 0 0 auto;          /* don't shrink */
+}
+
+.header-image {
+    max-width: 650px;        /* adjust as needed */
+    height: auto;
+}
+
+.lanyard-container {
+    flex: 0 0 auto;          /* keep iframe size fixed */
+}
+
+.lanyard-iframe {
+    width: 400px;            /* adjust width */
+    height: 400px;           /* adjust height */
+    border: none;            /* remove default iframe border */
+}
+
+/* Vertical stack layout */
+.experience-grid {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  align-items: center;    /* center horizontally */
+  gap: 40px;              /* spacing between images */
+}
+
+.experience-img {
+  display: block;
+  margin: 0px auto; /* center */
+  width: 90%;        /* scale to 50% */
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s;
+  
+}
+
+.experience-img:hover {
+  transform: scale(1.05);
+}
+
+/* Base filter button */
+.filter-btn {
+  border-width: 2px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+/* Individual colors */
+.btn-events {
+  color: #00bf63;
+  border-color: #00bf63;
+}
+.btn-events:hover,
+.btn-events.active {
+  background-color: #00bf63;
+  color: #fff;
+}
+
+.btn-exhibitions {
+  color: #3888ff;
+  border-color: #3888ff;
+}
+.btn-exhibitions:hover,
+.btn-exhibitions.active {
+  background-color: #3888ff;
+  color: #fff;
+}
+
+.btn-competitions {
+  color: #ff9a02;
+  border-color: #ff9a02;
+}
+.btn-competitions:hover,
+.btn-competitions.active {
+  background-color: #ff9a02;
+  color: #fff;
+}
+
+.btn-media {
+  color: #ed1a4d;
+  border-color: #ed1a4d;
+}
+.btn-media:hover,
+.btn-media.active {
+  background-color: #ed1a4d;
+  color: #fff;
+}
+
+.btn-all {
+  color: #868e96;
+  border-color: #868e96;
+}
+.btn-all:hover,
+.btn-all.active {
+  background-color: #868e96;
+  color: #fff;
+}
+
+/* PROJECT BUTTON COLORS */
+
+.btn-published {
+  color: #12b886;
+  border-color: #12b886;
+}
+.btn-published:hover,
+.btn-published.active {
+  background-color: #12b886;
+  color: #fff;
+}
+
+.btn-development {
+  color: #228be6;
+  border-color: #228be6;
+}
+.btn-development:hover,
+.btn-development.active {
+  background-color: #228be6;
+  color: #fff;
+}
+
+.btn-hold {
+  color: #fab005;
+  border-color: #fab005;
+}
+.btn-hold:hover,
+.btn-hold.active {
+  background-color: #fab005;
+  color: #fff;
+}
+
+.btn-abandoned {
+  color: #868e96;
+  border-color: #868e96;
+}
+.btn-abandoned:hover,
+.btn-abandoned.active {
+  background-color: #868e96;
+  color: #fff;
+}
+
+/* 3D modeling wrapper */
+.modeling-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 3D images */
+.model-img {
+  display: block;
+
+  width: 75%;          /* 👈 CHANGE THIS % ONLY */
+  height: auto;
+
+  margin: 28px auto;  /* top & bottom gap + center */
+
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover */
+.model-img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.18);
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+  .model-img {
+    width: 90%;        /* 👈 MOBILE SIZE */
+    margin: 20px auto;
+  }
+}
+
+.badge-container {
+    width: 100%;
+    max-width: 900px;  /* optional max width */
+    margin: 20px auto; /* center it */
+    height: 1200px;     /* adjust height as needed */
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.badge-container iframe.badge-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Skill Section Wrapper */
+.skill-image-wrapper {
+    display: flex;
+    justify-content: center;   /* horizontal center */
+    align-items: center;       /* vertical center if needed */
+    margin: 40px 0;            /* spacing above/below */
+}
+
+/* Skill Image */
+.skill-img {
+    max-width: 900px;          /* adjust max size */
+    width: 90%;                /* responsive width */
+    height: auto;              /* keep aspect ratio */
+    border-radius: 12px;       /* rounded corners */
+    display: block;
+    transition: transform 0.3s ease; /* optional hover effect */
+}
+
+#additional .form-control {
+    border-radius:8px;
+    padding: 12px 15px;
+    font-size: 1rem;
+}
+
+#additional .btn {
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-weight: 600;
+}
+
+/* CONTACT CARD */
+.contact-card {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 18px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* ⬅ center horizontally */
+  text-align: center;    /* ⬅ center text */
+}
+
+
+/* CONTACT INFO */
+.contact-info p {
+  font-size: 1.05rem;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-info i {
+  color: #ed1a4d; /* bootstrap primary */
+  font-size: 1.2rem;
+}
+
+.contact-info a {
+  color: #212529;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* CONTACT FORM */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  font-size: 1rem;
+  transition: border 0.25s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #ed1a4d;
+}
+
+/* SEND BUTTON */
+.contact-form button {
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: #ed1a4d;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-2px);
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+  .contact-card {
+    padding: 28px 22px;
+  }
+}
+
+</style>
+
+
+
+
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+               <span class="d-none d-lg-block" style="display:none;"></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Home</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Personal Projects</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">3D Modelling</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Certification</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#additional">Contact</a></li>
+
+                </ul>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- About-->
+           <section class="resume-section" id="about">
+    <div class="resume-section-content">
+
+<!-- Side by Side: Header + Lanyard -->
+<div class="side-by-side-container">
+    <!-- Left: Header Image -->
+    <div class="header-image-container">
+        <img src="assets/img/header.png" alt="Header Image" class="header-image">
+    </div>
+
+    <!-- Right: Lanyard iframe -->
+    <div class="lanyard-container">
+        <iframe 
+            src="https://3d-lanyard-rho.vercel.app/" 
+            title="3D Lanyard Card"
+            class="lanyard-iframe">
+        </iframe>
+    </div>
+</div>
+
+
+<!-- Card -->
+<div class="card-container mb-4">
+    <div class="card-wrapper">
+        <div class="stage">
+            <div id="card" class="card idle">
+                <div class="card__inner">
+                    <img src="assets/img/card.png" alt="Business Card" class="card-img">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+</section>
+
+            <hr class="m-0" />
+            <!-- Experience-->
+            <section class="resume-section" id="experience">
+                
+                <div class="resume-section-content">
+                 <h2 class="mb-5 text-center">Experience</h2>
+<div class="experience-filters text-center mb-4">
+  <button class="btn filter-btn btn-events mx-2" data-filter="events">Events</button>
+  <button class="btn filter-btn btn-exhibitions mx-2" data-filter="exhibitions">Exhibitions</button>
+  <button class="btn filter-btn btn-competitions mx-2" data-filter="competitions">Competitions</button>
+  <button class="btn filter-btn btn-media mx-2" data-filter="media">Media Appearances</button>
+  <button class="btn filter-btn btn-all mx-2" data-filter="all">All</button>
+</div>
+
+<div class="d-flex flex-column flex-md-row justify-content-between mb-5"></div>
+                     <!-- Grid of images -->
+    <div class="experience-grid">
+    <img src="assets/img/experience1.png" alt="Experience 1" class="experience-img" data-category="events">
+    <img src="assets/img/experience2.png" alt="Experience 2" class="experience-img" data-category="events">
+    <img src="assets/img/experience3.png" alt="Experience 3" class="experience-img" data-category="events">
+    <img src="assets/img/experience4.png" alt="Experience 4" class="experience-img" data-category="events">
+    <img src="assets/img/experience5.png" alt="Experience 5" class="experience-img" data-category="competitions">
+    <img src="assets/img/experience6.png" alt="Experience 6" class="experience-img" data-category="events">
+    <img src="assets/img/experience7.png" alt="Experience 7" class="experience-img" data-category="competitions">
+    <img src="assets/img/experience8.png" alt="Experience 8" class="experience-img" data-category="exhibitions">
+    <img src="assets/img/experience9.png" alt="Experience 9" class="experience-img" data-category="events">
+    <img src="assets/img/experience10.png" alt="Experience 10" class="experience-img" data-category="competitions">
+    <img src="assets/img/experience11.png" alt="Experience 11" class="experience-img" data-category="events">
+    <img src="assets/img/experience12.png" alt="Experience 12" class="experience-img" data-category="exhibitions">
+    <img src="assets/img/experience13.png" alt="Experience 13" class="experience-img" data-category="exhibitions">
+    <img src="assets/img/experience14.png" alt="Experience 14" class="experience-img" data-category="media">
+    <img src="assets/img/experience15.png" alt="Experience 15" class="experience-img" data-category="competitions">
+    <img src="assets/img/experience16.png" alt="Experience 16" class="experience-img" data-category="competitions">
+    <img src="assets/img/experience17.png" alt="Experience 17" class="experience-img" data-category="competitions">
+    <img src="assets/img/experience18.png" alt="Experience 18" class="experience-img" data-category="competitions">
+    <img src="assets/img/experience19.png" alt="Experience 19" class="experience-img" data-category="exhibitions">
+    <img src="assets/img/experience20.png" alt="Experience 20" class="experience-img" data-category="competitions">
+    <img src="assets/img/experience21.png" alt="Experience 21" class="experience-img" data-category="media">
+    <img src="assets/img/experience22.png" alt="Experience 22" class="experience-img" data-category="competitions">
+    <img src="assets/img/experience23.png" alt="Experience 23" class="experience-img" data-category="competitions">
+    <img src="assets/img/experience24.png" alt="Experience 24" class="experience-img" data-category="media">
+    <img src="assets/img/experience25.png" alt="Experience 25" class="experience-img" data-category="competitions">
+    <img src="assets/img/experience26.png" alt="Experience 26" class="experience-img" data-category="competitions">
+    <img src="assets/img/experience27.png" alt="Experience 27" class="experience-img" data-category="competitions">
+    <img src="assets/img/experience28.png" alt="Experience 28" class="experience-img" data-category="exhibitions">
+    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        
+            </section>
+            <hr class="m-0" />
+            <!-- Education-->
+            <section class="resume-section" id="education">
+                <div class="resume-section-content">
+                     <h2 class="mb-5 text-center">Personal Projects</h2>
+
+    <!-- Project Filters -->
+    <div class="experience-filters text-center mb-4">
+      <button class="btn filter-btn btn-published mx-2" data-filter="published">Published</button>
+      <button class="btn filter-btn btn-development mx-2" data-filter="development">In Development</button>
+      <button class="btn filter-btn btn-hold mx-2" data-filter="hold">On Hold</button>
+      <button class="btn filter-btn btn-abandoned mx-2" data-filter="abandoned">Abandoned</button>
+      <button class="btn filter-btn btn-all mx-2" data-filter="all">All</button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="experience-grid project-grid">
+      <img src="assets/img/project1.png" class="experience-img project-img" data-category="abandoned">
+      <img src="assets/img/project2.png" class="experience-img project-img" data-category="abandoned">
+      <img src="assets/img/project3.png" class="experience-img project-img" data-category="published">
+      <img src="assets/img/project4.png" class="experience-img project-img" data-category="abandoned">
+      <img src="assets/img/project5.png" class="experience-img project-img" data-category="published">
+      <img src="assets/img/project6.png" class="experience-img project-img" data-category="published">
+      <img src="assets/img/project7.png" class="experience-img project-img" data-category="published">
+      <img src="assets/img/project8.png" class="experience-img project-img" data-category="published">
+      <img src="assets/img/project9.png" class="experience-img project-img" data-category="abandoned">
+      <img src="assets/img/project10.png" class="experience-img project-img" data-category="hold">
+      <img src="assets/img/project11.png" class="experience-img project-img" data-category="abandoned">
+      <img src="assets/img/project12.png" class="experience-img project-img" data-category="published">
+      <img src="assets/img/project13.png" class="experience-img project-img" data-category="published">
+      <img src="assets/img/project14.png" class="experience-img project-img" data-category="hold">
+      <img src="assets/img/project15.png" class="experience-img project-img" data-category="hold">
+      <img src="assets/img/project16.png" class="experience-img project-img" data-category="development">
+      <img src="assets/img/project17.png" class="experience-img project-img" data-category="hold">
+      <img src="assets/img/project18.png" class="experience-img project-img" data-category="published">
+      <img src="assets/img/project19.png" class="experience-img project-img" data-category="development">
+      <img src="assets/img/project20.png" class="experience-img project-img" data-category="development">
+    </div>
+
+  </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Skills-->
+            <section class="resume-section" id="skills">
+                <div class="resume-section-content">
+                    <h2 class="mb-5 text-center">3D Modeling</h2>
+                    <div class="experience-filters text-center mb-4">
+<div class="experience-filters text-center mb-4">
+  <button class="btn filter-btn btn-published" data-filter="personal">
+    Personal
+  </button>
+  <button class="btn filter-btn btn-development active" data-filter="intern">
+    Internship
+  </button>
+</div>
+
+
+ <!-- Intern 3D Images -->
+    <div class="modeling-grid intern-3d mb-5">
+      <img
+        class="model-img"
+        data-group="intern"
+        data-index="1"
+        data-view="0"
+        data-views="material,base,normal"
+        src="assets/img/3dinternmaterial1.png"
+        alt="Intern 3D 1"
+      />
+      <img
+        class="model-img"
+        data-group="intern"
+        data-index="2"
+        data-view="0"
+        data-views="material,base,normal,wireframe"
+        src="assets/img/3dinternmaterial2.png"
+        alt="Intern 3D 2"
+      />
+       <img
+        class="model-img"
+        data-group="intern"
+        data-index="3"
+        data-view="0"
+        data-views="material,base,normal"
+        src="assets/img/3dinternmaterial3.png"
+        alt="Intern 3D 3"
+      />
+       <img
+        class="model-img"
+        data-group="intern"
+        data-index="4"
+        data-view="0"
+        data-views="material,base,normal"
+        src="assets/img/3dinternmaterial4.png"
+        alt="Intern 3D 4"
+      />
+    </div>
+
+</div>
+ <!-- Personal 3D Images -->
+    <div class="modeling-grid personal-3d mb-5">
+      <img
+        class="model-img"
+        data-group="personal"
+        data-index="1"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial1.png"
+        alt="Personal 3D 1"
+      />
+      <img
+        class="model-img"
+        data-group="personal"
+        data-index="2"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial2.png"
+        alt="Personal 3D 2"
+      />
+       <img
+        class="model-img"
+        data-group="personal"
+        data-index="3"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial3.png"
+        alt="Personal 3D 3"
+      />
+       <img
+        class="model-img"
+        data-group="personal"
+        data-index="4"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial4.png"
+        alt="Personal 3D 4"
+      />
+       <img
+        class="model-img"
+        data-group="personal"
+        data-index="5"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial5.png"
+        alt="Personal 3D 5"
+      />
+       <img
+        class="model-img"
+        data-group="personal"
+        data-index="6"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial6.png"
+        alt="Personal 3D 6"
+      />
+       <img
+        class="model-img"
+        data-group="personal"
+        data-index="7"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial7.png"
+        alt="Personal 3D 7"
+      />
+       <img
+        class="model-img"
+        data-group="personal"
+        data-index="8"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial8.png"
+        alt="Personal 3D 8"
+      />
+       <img
+        class="model-img"
+        data-group="personal"
+        data-index="9"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial9.png"
+        alt="Personal 3D 9"
+      />
+       <img
+        class="model-img"
+        data-group="personal"
+        data-index="10"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial10.png"
+        alt="Personal 3D 10"
+      />
+       <img
+        class="model-img"
+        data-group="personal"
+        data-index="11"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial11.png"
+        alt="Personal 3D 11"
+      />
+       <img
+        class="model-img"
+        data-group="personal"
+        data-index="12"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial12.png"
+        alt="Personal 3D 12"
+      />
+       <img
+        class="model-img"
+        data-group="personal"
+        data-index="13"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial13.png"
+        alt="Personal 3D 13"
+      />
+        <img
+        class="model-img"
+        data-group="personal"
+        data-index="14"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial14.png"
+        alt="Personal 3D 14"
+      />
+        <img
+        class="model-img"
+        data-group="personal"
+        data-index="15"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial15.png"
+        alt="Personal 3D 15"
+      />
+        <img
+        class="model-img"
+        data-group="personal"
+        data-index="16"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial16.png"
+        alt="Personal 3D 16"
+      />
+        <img
+        class="model-img"
+        data-group="personal"
+        data-index="17"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial17.png"
+        alt="Personal 3D 17"
+      />
+        <img
+        class="model-img"
+        data-group="personal"
+        data-index="18"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial18.png"
+        alt="Personal 3D 18"
+      />
+       <img
+        class="model-img"
+        data-group="personal"
+        data-index="19"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial19.png"
+        alt="Personal 3D 19"
+      />
+       <img
+        class="model-img"
+        data-group="personal"
+        data-index="20"
+        data-view="0"
+        data-views="material,base"
+        src="assets/img/3dpersonalmaterial20.png"
+        alt="Personal 3D 20"
+      />
+      <img
+        class="model-img"
+        data-group="personal"
+        data-index="21"
+        data-view="0"
+        data-views="material,base,normal,wireframe"
+        src="assets/img/3dpersonalmaterial21.png"
+        alt="Personal 3D 21"
+      />
+         <img
+        class="model-img"
+        data-group="personal"
+        data-index="22"
+        data-view="0"
+        data-views="material,base,normal,wireframe"
+        src="assets/img/3dpersonalmaterial22.png"
+        alt="Personal 3D 22"
+      />
+   <img
+        class="model-img"
+        data-group="personal"
+        data-index="23"
+        data-view="0"
+        data-views="material,base,normal,wireframe"
+        src="assets/img/3dpersonalmaterial23.png"
+        alt="Personal 3D 23"
+      />
+     <img
+        class="model-img"
+        data-group="personal"
+        data-index="24"
+        data-view="0"
+        data-views="material"
+        src="assets/img/3dpersonalmaterial24.png"
+        alt="Personal 3D 24"
+      />
+     <img
+        class="model-img"
+        data-group="personal"
+        data-index="25"
+        data-view="0"
+        data-views="material,base,normal,wireframe"
+        src="assets/img/3dpersonalmaterial25.png"
+        alt="Personal 3D 25"
+      />
+     <img
+        class="model-img"
+        data-group="personal"
+        data-index="26"
+        data-view="0"
+        data-views="material,base,normal,wireframe"
+        src="assets/img/3dpersonalmaterial26.png"
+        alt="Personal 3D 26"
+      />
+     <img
+        class="model-img"
+        data-group="personal"
+        data-index="27"
+        data-view="0"
+        data-views="material,base,normal,wireframe"
+        src="assets/img/3dpersonalmaterial27.png"
+        alt="Personal 3D 27"
+      />
+     <img
+        class="model-img"
+        data-group="personal"
+        data-index="28"
+        data-view="0"
+        data-views="material,base,normal,wireframe"
+        src="assets/img/3dpersonalmaterial28.png"
+        alt="Personal 3D 28"
+      />
+    </div>
+
+            </section>
+
+            <hr class="m-0" />
+            <!-- Awards-->
+            <section class="resume-section" id="awards">
+                <div class="resume-section-content">
+                    <h2 class="mb-5 text-center">Skills</h2>
+                  <!-- Single skill image wrapper -->
+        <div class="skill-image-wrapper">
+            <img src="assets/img/skill-image.png" 
+                 alt="Skill Image" 
+                 class="skill-img">
+        </div>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+            <!-- Interests-->
+            <section class="resume-section" id="interests">
+                <div class="resume-section-content">
+                   <h2 class="mb-5 text-center">Certifications</h2>
+
+                    <div class="badge-container">
+    <iframe 
+        src="https://badge-credly-furqan.vercel.app/" 
+        title="Badge Portfolio"
+        class="badge-iframe">
+    </iframe>
+
+            </section>
+
+            <hr class="m-0" />
+<section class="resume-section" id="additional">
+  <div class="resume-section-content">
+    <h2 class="mb-5 text-center">Contact</h2>
+
+    <!-- Contact Card -->
+    <div class="contact-card">
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <p>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:voltrazstudios@gmail.com">
+            voltrazstudios@gmail.com
+          </a>
+        </p>
+
+        <p>
+          <i class="fas fa-phone"></i>
+          <a href="tel:+60122961103">
+            +60 12-296 1103
+          </a>
+        </p>
+
+        <p>
+          <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/furqanul-amjad-faridilatras/" target="_blank">
+            LinkedIn Profile
+          </a>
+        </p>
+      </div>
+
+      <!-- Contact Form -->
+      <form
+        class="contact-form"
+        action="https://mail.google.com/mail/?view=cm&fs=1&to=voltrazstudios@gmail.com"
+        method="GET"
+        target="_blank"
+      >
+        <input type="text" name="su" placeholder="Your Name" required>
+        <input type="email" name="cc" placeholder="Your Email" required>
+        <textarea name="body" rows="5" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+
+        <script>
+(function(){
+    const card = document.getElementById("card");
+    if(!card) return;
+    let rect = card.getBoundingClientRect();
+
+    function updateRect(){ rect = card.getBoundingClientRect(); }
+
+   function onMove(e){
+    const rect = card.getBoundingClientRect(); // recalc each time
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    const rotateY = x * 20;
+    const rotateX = -y * 20;
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+}
+
+
+    function enter(){
+        card.classList.add("hovered");
+    }
+    function leave(){
+        card.classList.remove("hovered");
+        card.style.transform = "";
+    }
+
+    // Desktop
+    card.addEventListener("pointerenter", enter);
+    card.addEventListener("pointerleave", leave);
+    card.addEventListener("pointermove", onMove);
+
+    // Mobile: only hover effect, no tilt to allow scroll
+    card.addEventListener("touchstart", enter);
+    card.addEventListener("touchend", leave);
+
+})();
+</script>
+
+<script>
+document.querySelectorAll(".model-img").forEach(img => {
+  img.addEventListener("click", () => {
+    const views = img.dataset.views.split(",");         
+    let currentView = parseInt(img.dataset.view);       
+    let nextView = (currentView + 1) % views.length;    
+
+    img.dataset.view = nextView;
+    img.src = `assets/img/3d${img.dataset.group}${views[nextView]}${img.dataset.index}.png`;
+  });
+});
+
+</script>
+
+<script>
+// === Experience Section Buttons ===
+const experienceFilters = document.querySelector(".resume-section#experience .experience-filters");
+const experienceImages = document.querySelectorAll(".resume-section#experience .experience-grid img");
+
+experienceFilters.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const filter = btn.dataset.filter;
+
+    experienceImages.forEach(img => {
+      img.style.display = filter === "all" || img.dataset.category === filter ? "block" : "none";
+    });
+
+    experienceFilters.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+  });
+});
+
+// === Projects Section Buttons ===
+const projectFilters = document.querySelector(".resume-section#education .experience-filters");
+const projectImages = document.querySelectorAll(".resume-section#education .project-grid img");
+
+projectFilters.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const filter = btn.dataset.filter;
+
+    projectImages.forEach(img => {
+      img.style.display = filter === "all" || img.dataset.category === filter ? "block" : "none";
+    });
+
+    projectFilters.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+  });
+});
+</script>
+
+
+<script>
+// === 3D Modeling Buttons ===
+const modelingFilters = document.querySelector("#skills .experience-filters");
+const modelingImages = document.querySelectorAll("#skills .model-img");
+
+modelingFilters.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const filter = btn.dataset.filter;
+
+    modelingImages.forEach(img => {
+      img.style.display = img.dataset.group === filter ? "block" : "none";
+    });
+
+    modelingFilters.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+  });
+});
+
+// Show PERSONAL by default
+modelingImages.forEach(img => {
+  img.style.display = img.dataset.group === "intern" ? "block" : "none";
+});
+</script>
+
+
+
+    </body>
+</html>
